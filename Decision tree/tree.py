@@ -167,13 +167,15 @@ class DecisionTreeClassifier():
 
 
 
-columns = ["Index","Refractive Index","Sodium","Magnesium","Silicon","Potassium","Calcium","Barium","Iron","Type of glass"]
+columns = ["Index","Refractive Index","Sodium","Magnesium","Aluminum","Silicon","Potassium","Calcium","Barium","Iron","Type of glass"]
 
 data = pd.read_csv('./glass-1.csv',names=columns)
 
+print(data.head())
+
 #take only the not index columns
 
-data = data[["Refractive Index","Sodium","Magnesium","Silicon","Potassium","Calcium","Barium","Iron","Type of glass"]]
+data = data[["Refractive Index","Sodium","Magnesium","Aluminum","Silicon","Potassium","Calcium","Barium","Iron","Type of glass"]]
 
 print(data.head())
 

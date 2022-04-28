@@ -4,13 +4,15 @@ import numpy as np
 from sklearn.utils import shuffle
 
 
-columns = ["Index","Refractive Index","Sodium","Magnesium","Silicon","Potassium","Calcium","Barium","Iron","Type of glass"]
+columns = ["Index","Refractive Index","Sodium","Magnesium","Aluminum","Silicon","Potassium","Calcium","Barium","Iron","Type of glass"]
 
 data = pd.read_csv('./glass-1.csv',names=columns)
 
+print(data.head())
+
 #take only the not index columns
 
-data = data[["Refractive Index","Sodium","Magnesium","Silicon","Potassium","Calcium","Barium","Iron","Type of glass"]]
+data = data[["Refractive Index","Sodium","Magnesium","Aluminum","Silicon","Potassium","Calcium","Barium","Iron","Type of glass"]]
 
 print(data.head())
 
@@ -30,8 +32,8 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=.3, random_s
 from sklearn import tree
 model = tree.DecisionTreeClassifier()
 
-model.fit(X_train,Y_train)
+fitness = model.fit(X_train,Y_train)
 
 print(model.score(X_test,Y_test))
 # [1.51711,14.23,0.00,2.08,73.36,0.00,8.62,1.67,0.00,]
-print(model.predict([[1.51711,14.23,0.00,2.08,73.36,0.00,8.62,1.67]]))
+print(model.predict([[1.51711,14.23,0.00,2.08,73.36,0.00,8.62,1.67,0.00]]))
