@@ -218,7 +218,7 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=.3, random_s
 # print(df_val.head())
 
 
-classifier = DecisionTreeClassifier(min_samples_split=3, max_depth=3)
+classifier = DecisionTreeClassifier(min_samples_split=3, max_depth=5)
 classifier.fit(X_train,Y_train)
 classifier.print_tree()
 
@@ -228,4 +228,11 @@ print("Predictions for Test Set---\n", Prediction)
 
 
 Y_pred = classifier.predict(X_test)
-print(accuracy_score(Y_test, Y_pred))
+
+# [1.51711,14.23,0.00,2.08,73.36,0.00,8.62,1.67,0.00,]
+print("Predict for: [1.51711,14.23,0.00,2.08,73.36,0.00,8.62,1.67,0.00,]")
+print("Class predited:",classifier.predict([[1.51711,14.23,0.00,2.08,73.36,0.00,8.62,1.67,0.00]]))
+
+print("Predict for: [1.52320,12.78,0.00,1.56,73.36,0.00,8.62,1.67,0.00]")
+print("Class predited:", classifier.predict([[1.51711,12.78,0.00,1.56,73.36,0.00,10.06,1.67,0.00]]))
+print("Accuracy:\n",accuracy_score(Y_test, Y_pred))
